@@ -89,5 +89,7 @@
 		<string>Times New Roman.ttf</string>
 		<string>Zocial.ttf</string>
 	</array>
+	<key>CodePushDeploymentKey</key>
+	<string>CeWfS1WEzXKR8PuZpMKAshZSfB5b4yjuPngl7</string>
 </dict>
 </plist>
