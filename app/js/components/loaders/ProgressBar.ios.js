@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 /* @flow */
 
 import React, { Component } from 'react';
@@ -6,8 +7,8 @@ import { ProgressViewIOS } from 'react-native';
 export default class ProgressBarNB extends Component {
 
   static propTypes = {
-    progress: React.PropTypes.number,
-    color: React.PropTypes.string,
+    progress: PropTypes.number,
+    color: PropTypes.string,
   }
 
   render() {

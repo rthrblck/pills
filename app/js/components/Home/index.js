@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
@@ -27,10 +28,10 @@ import EmptyMedications from './EmptyMedications';
 class Home extends Component {
 
   static propTypes = {
-    name: React.PropTypes.string,
-    setIndex: React.PropTypes.func,
-    list: React.PropTypes.arrayOf(React.PropTypes.string),
-    openDrawer: React.PropTypes.func,
+    name: PropTypes.string,
+    setIndex: PropTypes.func,
+    list: PropTypes.arrayOf(PropTypes.string),
+    openDrawer: PropTypes.func,
   }
 
   newPage(index) {

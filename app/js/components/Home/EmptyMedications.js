@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Actions } from 'react-native-router-flux';
 import {
@@ -24,6 +25,6 @@ const EmptyMedications = ({ list }) => (
   </Card>
 );
 EmptyMedications.propTypes = {
-  list: React.PropTypes.arrayOf(React.PropTypes.string),
+  list: PropTypes.arrayOf(PropTypes.string),
 };
 export default EmptyMedications;

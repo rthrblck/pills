@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { ProgressBarAndroid } from 'react-native';
 
@@ -5,8 +6,8 @@ import { ProgressBarAndroid } from 'react-native';
 export default class SpinnerNB extends Component {
 
   static propTypes = {
-    progress: React.PropTypes.number,
-    color: React.PropTypes.string,
+    progress: PropTypes.number,
+    color: PropTypes.string,
   }
 
   render() {

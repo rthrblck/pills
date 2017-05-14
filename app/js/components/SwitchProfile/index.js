@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 /* @flow */
 import React, { Component } from 'react';
 import { TouchableOpacity } from 'react-native';
@@ -24,10 +25,10 @@ import { openDrawer } from '../../actions/drawer';
 // add sections at the bottom with more and more data
 class SwitchProfile extends Component {
   static propTypes = {
-    name: React.PropTypes.string,
-    setIndex: React.PropTypes.func,
-    list: React.PropTypes.arrayOf(React.PropTypes.string),
-    openDrawer: React.PropTypes.func,
+    name: PropTypes.string,
+    setIndex: PropTypes.func,
+    list: PropTypes.arrayOf(PropTypes.string),
+    openDrawer: PropTypes.func,
   }
   componentDidUpdate() {
     console.log('SwitchProfile updated', this.props);

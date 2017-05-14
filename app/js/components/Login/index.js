@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 /* @flow */
 import React, { Component } from 'react';
 import { Image } from 'react-native';
@@ -14,7 +15,7 @@ const background = require('../../../images/shadow.png');
 class Login extends Component {
 
   static propTypes = {
-    setUser: React.PropTypes.func,
+    setUser: PropTypes.func,
   }
 
   constructor(props) {

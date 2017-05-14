@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 /* @flow */
 import React, { Component } from 'react';
 import { TouchableOpacity } from 'react-native';
@@ -37,7 +38,7 @@ const ListMedications = ({ list, styles }) => (
   </Card>
 );
 ListMedications.propTypes = {
-  list: React.PropTypes.arrayOf(React.PropTypes.string),
-  styles: React.PropTypes.object,
+  list: PropTypes.arrayOf(PropTypes.string),
+  styles: PropTypes.object,
 };
 export default ListMedications;

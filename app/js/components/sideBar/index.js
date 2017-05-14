@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 /* @flow */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
@@ -13,8 +14,8 @@ class SideBar extends Component {
 
   static propTypes = {
     // setIndex: React.PropTypes.func,
-    closeDrawer: React.PropTypes.func,
-    navigateTo: React.PropTypes.func,
+    closeDrawer: PropTypes.func,
+    navigateTo: PropTypes.func,
   }
 
   navigateTo(route) {

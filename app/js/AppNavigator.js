@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 /* @flow */
 import React, { Component } from 'react';
 import { StatusBar } from 'react-native';
@@ -21,8 +22,8 @@ const RouterWithRedux = connect()(Router);
 class AppNavigator extends Component {
 
   static propTypes = {
-    drawerState: React.PropTypes.string,
-    closeDrawer: React.PropTypes.func,
+    drawerState: PropTypes.string,
+    closeDrawer: PropTypes.func,
   }
 
 
@@ -37,14 +38,14 @@ class AppNavigator extends Component {
   }
 
 
-  openDrawer() {
-    this._drawer._root.open();
-  }
-
   closeDrawer() {
     if (this.props.drawerState === 'opened') {
       this.props.closeDrawer();
     }
+  }
+
+  openDrawer() {
+    this._drawer._root.open();
   }
 
   render() {
