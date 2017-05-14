@@ -1,4 +1,4 @@
-
+/* @flow */
 import type { Action } from '../actions/types';
 import { OPEN_DRAWER, CLOSE_DRAWER } from '../actions/drawer';
 
@@ -12,7 +12,7 @@ const initialState = {
   drawerDisabled: true,
 };
 
-export default function (state:State = initialState, action:Action): State {
+export default function (state: State = initialState, action: Action): State {
   if (action.type === OPEN_DRAWER) {
     return {
       ...state,

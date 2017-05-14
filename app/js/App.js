@@ -1,4 +1,4 @@
-
+/* @flow */
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import CodePush from 'react-native-code-push';
@@ -58,7 +58,7 @@ class App extends Component {
       },
       ({ receivedBytes, totalBytes }) => {
         this.setState({ downloadProgress: (receivedBytes / totalBytes) * 100 });
-      }
+      },
     );
   }
 

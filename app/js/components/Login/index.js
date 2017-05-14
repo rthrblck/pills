@@ -1,4 +1,4 @@
-
+/* @flow */
 import React, { Component } from 'react';
 import { Image } from 'react-native';
 import { connect } from 'react-redux';

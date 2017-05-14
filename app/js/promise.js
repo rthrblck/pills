@@ -1,4 +1,4 @@
-
+/* @flow */
 function warn(error) {
   throw error; // To let the caller handle the rejection
 }

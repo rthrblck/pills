@@ -18,19 +18,19 @@ const ListMedications = ({ list, styles }) => (
     <CardItem>
       <Grid style={styles.mt}>
         {list.map((item, i) =>
-          <Row key={i}>
+          (<Row key={i}>
             <TouchableOpacity
               style={styles.row}
               onPress={() => this.newPage(i)}
             >
               <Text style={styles.text}>{item}</Text>
             </TouchableOpacity>
-          </Row>
+          </Row>),
         )}
       </Grid>
     </CardItem>
     <CardItem footer>
-      <Button onPress={() => Actions.AddMedication() }>
+      <Button onPress={() => Actions.AddMedication()}>
         Add Medication
       </Button>
     </CardItem>

@@ -1,0 +1,54 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "settings": {
+    "ecmascript": 6,
+    "jsx": true,
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": [
+    "import",
+    "flowtype",
+    "react"
+  ],
+  "extends": [
+    "airbnb/base",
+    "plugin:react/recommended",
+    "plugin:flowtype/recommended"
+  ],
+  "globals": {
+    "browser": false,
+    "expect": false
+  },
+  "rules": {
+    "indent": [2, 2],
+    "quotes": [2, "single"],
+    "linebreak-style": [2, "unix"],
+    "semi": [2, "always"],
+    "strict": 0,
+    "no-unused-vars": 0,
+    "arrow-parens": 0,
+    "camelcase": 0,
+    "jsx-a11y/img-has-alt": 0,
+    "react/jsx-filename-extension": 0,
+    "import/extensions": 0,
+    "import/no-unresolved": [2, { commonjs: true, amd: true }],
+    "import/no-extraneous-dependencies": 0,
+    "import/named": 2,
+    "import/namespace": 2,
+    "import/export": 2,
+    "new-cap": 0,
+    "no-console": 0,
+    "no-comma-dangle": 0,
+    "no-param-reassign": 0,
+    "no-underscore-dangle": 0,
+    "no-return-assign": 0
+  }
+}

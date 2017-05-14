@@ -16,7 +16,7 @@ const EmptyMedications = ({ list }) => (
       <Header>Would you like to track a Medication?</Header>
     </CardItem>
     <CardItem footer>
-      <Button onPress={() => Actions.AddMedication() }>
+      <Button onPress={() => Actions.AddMedication()}>
         <Icon name="fa fa-check" />
         <Text>Yes, Add Medication</Text>
       </Button>

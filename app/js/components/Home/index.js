@@ -50,7 +50,7 @@ class Home extends Component {
           </Left>
 
           <Body>
-            <Title>{(name) ? name : 'Home'}</Title>
+            <Title>{(name) || 'Home'}</Title>
           </Body>
 
           <Right>

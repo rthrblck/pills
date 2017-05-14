@@ -1,3 +1,4 @@
+/* @flow */
 import color from 'color';
 
 import { Platform } from 'react-native';
