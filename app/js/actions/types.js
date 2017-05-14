@@ -10,6 +10,7 @@ export type Action =
   | { type: 'SET_USER', name: string }
   | { type: 'SET_MED', med: object }
   | { type: 'SET_LIST', list: stringe }
+  | { type: 'SEARCH_MED', term: stringe }
 
 export type Dispatch = (action: Action | Array<Action>) => any;
 export type GetState = () => Object;

@@ -4,10 +4,17 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "npm run lint && npm run ava",
+    "test:watch": "npm run ava -- --watch",
+    "test:full": "npm run lint && npm run ava && npm run jest",
+    "test:lint": "eslint js",
+    "test:lintfix": "eslint js --fix",
+    "test:ava": "ava tests_ava",
+    "test:jest": "jest"
   },
   "dependencies": {
     "@expo/vector-icons": "^4.0.0",
+    "ava": "^0.19.1",
     "color": "^1.0.3",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
