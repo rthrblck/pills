@@ -91,5 +91,17 @@
 	</array>
 	<key>CodePushDeploymentKey</key>
 	<string>CeWfS1WEzXKR8PuZpMKAshZSfB5b4yjuPngl7</string>
+
+	<key>NSCameraUsageDescription</key>
+	<string>We need to use the Camera</string>
+
+	<!-- Include this only if you are planning to use the camera roll -->
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need to use the photo library</string>
+
+	<!--
+	<key>NSMicrophoneUsageDescription</key>
+	<string>We need to use microsphone</string>
+	-->
 </dict>
 </plist>

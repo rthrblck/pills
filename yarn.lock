@@ -3411,6 +3411,10 @@ react-devtools-core@^2.0.8:
     shell-quote "^1.6.1"
     ws "^2.0.3"
 
+react-native-camera@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/react-native-camera/-/react-native-camera-0.8.0.tgz#ba5932df9df5a4a3af0b1bc3fc96559ed9699314"
+
 react-native-code-push@^2.0.3-beta:
   version "2.0.3-beta"
   resolved "https://registry.yarnpkg.com/react-native-code-push/-/react-native-code-push-2.0.3-beta.tgz#2eca24e125a85711abda4e5a553deb4ff61c9177"
