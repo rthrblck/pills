@@ -5,6 +5,7 @@ import { TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions, ActionConst } from 'react-native-router-flux';
 import {
+  Form,
   Container,
   Header,
   Title,
@@ -25,6 +26,7 @@ import styles from '../BasePage/styles';
 import AppHeader from '../BasePage/AppHeader';
 
 import { setIndex } from '../../actions/list';
+import { searchMed } from '../../actions/search_med';
 
 // experiment with making all of the AddMedicationName 1 big page
 // add sections at the bottom with more and more data
@@ -40,7 +42,10 @@ const AddMedicationName = ({
       <Header searchBar rounded>
         <Item>
           <Icon name="search" />
-          <Input placeholder="Search" />
+          <Input
+            placeholder="Search"
+            onChangeText={searchMed}
+          />
         </Item>
         <Button transparent>
           <Text>Search</Text>

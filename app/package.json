@@ -4,13 +4,13 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "lint": "eslint js",
+    "lintfix": "eslint js --fix",
+    "ava": "ava",
+    "jest": "jest",
     "test": "npm run lint && npm run ava",
-    "test:watch": "npm run ava -- --watch",
-    "test:full": "npm run lint && npm run ava && npm run jest",
-    "test:lint": "eslint js",
-    "test:lintfix": "eslint js --fix",
-    "test:ava": "ava tests_ava",
-    "test:jest": "jest"
+    "test:watch": "npm run ava --watch",
+    "test:full": "npm run lint && npm run ava && npm run jest"
   },
   "dependencies": {
     "@expo/vector-icons": "^4.0.0",
@@ -44,5 +44,28 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "ava": {
+    "files": [
+      "tests_ava/*.js",
+      "js/**/*.test.js",
+      "js/**/*.{test,tests}.js",
+      "!**/not-this-file.js",
+      "!__tests__",
+      "!__tests__/*.js"
+    ],
+    "source": [
+      "**/*.{js,jsx}",
+      "!dist/**/*"
+    ],
+    "concurrency": 5,
+    "failFast": true,
+    "failWithoutAssertions": true,
+    "tap": false,
+    "powerAssert": true,
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
   }
 }
