@@ -7,10 +7,11 @@ import { Router, Scene } from 'react-native-router-flux';
 
 import { closeDrawer } from './actions/drawer';
 
-import Login from './components/login/';
-import Home from './components/home/';
-import Intake from './components/intake/';
-import BlankPage from './components/blankPage';
+import Login from './components/Login/';
+import Home from './components/Home/';
+import SwitchProfile from './components/SwitchProfile/';
+import AddProfile from './components/AddProfile/';
+import AddMedication from './components/AddMedication/';
 import SideBar from './components/sideBar';
 import { statusBarColor } from './themes/base-theme';
 
@@ -45,21 +46,6 @@ class AppNavigator extends Component {
       this.props.closeDrawer();
     }
   }
-
-  // _renderScene(props) { // eslint-disable-line class-methods-use-this
-  //   switch (props.scene.route.key) {
-  //     case 'login':
-  //       return <Login />;
-  //     case 'home':
-  //       return <Home />;
-  //       case 'intake':
-  //         return <Intake />;
-  //     case 'blankPage':
-  //       return <BlankPage />;
-  //     default :
-  //       return <Login />;
-  //   }
-  // }
 
   render() {
     return (
@@ -96,10 +82,11 @@ class AppNavigator extends Component {
         />
         <RouterWithRedux>
           <Scene key="root">
-            <Scene key="login" component={Login} />
-            <Scene key="home" component={Home} hideNavBar initial />
-            <Scene key="intake" component={Intake} />
-            <Scene key="blankPage" component={BlankPage} />
+            <Scene key="Login" component={Login} />
+            <Scene key="SwitchProfile" component={SwitchProfile} />
+            <Scene key="Home" component={Home} hideNavBar initial />
+            <Scene key="AddProfile" component={AddProfile} />
+            <Scene key="AddMedication" component={AddMedication} />
           </Scene>
         </RouterWithRedux>
       </Drawer>

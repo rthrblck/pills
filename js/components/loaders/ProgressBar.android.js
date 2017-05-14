@@ -4,8 +4,12 @@ import { ProgressBarAndroid } from 'react-native';
 
 export default class SpinnerNB extends Component {
 
-  render() {
+  static propTypes = {
+    progress: React.PropTypes.number,
+    color: React.PropTypes.string,
+  }
 
+  render() {
     return (
       <ProgressBarAndroid
         {...this.props}

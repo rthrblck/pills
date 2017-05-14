@@ -1,14 +1,27 @@
 import React, { Component } from 'react';
+import { TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
-import { Container, Header, Title, Content, Text, Button, Icon, Left, Body, Right } from 'native-base';
+import { Actions, ActionConst } from 'react-native-router-flux';
+import {
+  Container,
+  Header,
+  Title,
+  Content,
+  Text,
+  Button,
+  Icon,
+  Left,
+  Body,
+  Right,
+} from 'native-base';
 import styles from './styles';
 
 import { setIndex } from '../../actions/list';
 import { openDrawer } from '../../actions/drawer';
 
-// experiment with making all of the intake 1 big page
+// experiment with making all of the AddProfile 1 big page
 // add sections at the bottom with more and more data
-class Intake extends Component {
+class AddProfile extends Component {
   static propTypes = {
     name: React.PropTypes.string,
     setIndex: React.PropTypes.func,
@@ -16,7 +29,7 @@ class Intake extends Component {
     openDrawer: React.PropTypes.func,
   }
   componentDidUpdate() {
-    console.log('intake updated', this.props);
+    console.log('AddProfile updated', this.props);
   }
   render() {
     return (
@@ -29,7 +42,7 @@ class Intake extends Component {
           </Left>
 
           <Body>
-            <Title>{(this.props.name) ? this.props.name : 'Intake'}</Title>
+            <Title>{(this.props.name) ? this.props.name : 'AddProfile'}</Title>
           </Body>
 
           <Right>
@@ -58,4 +71,4 @@ const mapStateToProps = state => ({
   list: state.list.list,
 });
 
-export default connect(mapStateToProps, bindAction)(Intake);
+export default connect(mapStateToProps, bindAction)(AddProfile);

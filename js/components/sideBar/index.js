@@ -24,14 +24,29 @@ class SideBar extends Component {
   render() {
     return (
       <Content style={styles.sidebar} >
-        <ListItem button onPress={() => { Actions.home(); this.props.closeDrawer(); }} >
+        <ListItem button onPress={() => {
+          Actions.Home();
+          this.props.closeDrawer();
+        }}>
           <Text>Home</Text>
         </ListItem>
-        <ListItem button onPress={() => { Actions.intake(); this.props.closeDrawer(); }} >
-          <Text>Intake</Text>
+        <ListItem button onPress={() => {
+          Actions.SwitchProfile();
+          this.props.closeDrawer();
+        }}>
+          <Text>Switch Profiles</Text>
         </ListItem>
-        <ListItem button onPress={() => { Actions.blankPage(); this.props.closeDrawer(); }} >
-          <Text>Blank Page</Text>
+        <ListItem button onPress={() => {
+          Actions.AddProfile();
+          this.props.closeDrawer();
+        }}>
+          <Text>Add Profile</Text>
+        </ListItem>
+        <ListItem button onPress={() => {
+          Actions.AddMedication();
+          this.props.closeDrawer();
+        }}>
+          <Text>Add Medication</Text>
         </ListItem>
       </Content>
     );

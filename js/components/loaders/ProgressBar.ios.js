@@ -5,9 +5,12 @@ import { ProgressViewIOS } from 'react-native';
 
 export default class ProgressBarNB extends Component {
 
+  static propTypes = {
+    progress: React.PropTypes.number,
+    color: React.PropTypes.string,
+  }
 
   render() {
-
     return (
       <ProgressViewIOS
         {...this.props}

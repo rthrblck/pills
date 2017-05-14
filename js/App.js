@@ -41,19 +41,19 @@ class App extends Component {
     CodePush.sync({ updateDialog: true, installMode: CodePush.InstallMode.IMMEDIATE },
       (status) => {
         switch (status) {
-          case CodePush.SyncStatus.DOWNLOADING_PACKAGE:
-            this.setState({ showDownloadingModal: true });
-            this._modal.open();
-            break;
-          case CodePush.SyncStatus.INSTALLING_UPDATE:
-            this.setState({ showInstalling: true });
-            break;
-          case CodePush.SyncStatus.UPDATE_INSTALLED:
-            this._modal.close();
-            this.setState({ showDownloadingModal: false });
-            break;
-          default:
-            break;
+        case CodePush.SyncStatus.DOWNLOADING_PACKAGE:
+          this.setState({ showDownloadingModal: true });
+          this._modal.open();
+          break;
+        case CodePush.SyncStatus.INSTALLING_UPDATE:
+          this.setState({ showInstalling: true });
+          break;
+        case CodePush.SyncStatus.UPDATE_INSTALLED:
+          this._modal.close();
+          this.setState({ showDownloadingModal: false });
+          break;
+        default:
+          break;
         }
       },
       ({ receivedBytes, totalBytes }) => {
