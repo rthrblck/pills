@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+/* @flow */
 import React, { Component } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
@@ -20,9 +21,9 @@ import styles from '../BasePage/styles';
 import { setIndex } from '../../actions/list';
 import { openDrawer } from '../../actions/drawer';
 
-// experiment with making all of the AddProfile 1 big page
+// experiment with making all of the AddMedicationScan 1 big page
 // add sections at the bottom with more and more data
-class AddProfile extends Component {
+class AddMedicationScan extends Component {
   static propTypes = {
     name: PropTypes.string,
     setIndex: PropTypes.func,
@@ -30,7 +31,7 @@ class AddProfile extends Component {
     openDrawer: PropTypes.func,
   }
   componentDidUpdate() {
-    console.log('AddProfile updated', this.props);
+    console.log('AddMedicationScan updated', this.props);
   }
   render() {
     return (
@@ -43,7 +44,7 @@ class AddProfile extends Component {
           </Left>
 
           <Body>
-            <Title>{(this.props.name) ? this.props.name : 'AddProfile'}</Title>
+            <Title>{(this.props.name) ? this.props.name : 'AddMedicationScan'}</Title>
           </Body>
 
           <Right>
@@ -72,4 +73,4 @@ const mapStateToProps = state => ({
   list: state.list.list,
 });
 
-export default connect(mapStateToProps, bindAction)(AddProfile);
+export default connect(mapStateToProps, bindAction)(AddMedicationScan);

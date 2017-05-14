@@ -13,6 +13,8 @@ import Home from './components/Home/';
 import SwitchProfile from './components/SwitchProfile/';
 import AddProfile from './components/AddProfile/';
 import AddMedication from './components/AddMedication/';
+import AddMedicationName from './components/AddMedicationName/';
+import AddMedicationScan from './components/AddMedicationScan/';
 import SideBar from './components/sideBar';
 import { statusBarColor } from './themes/base-theme';
 
@@ -88,6 +90,8 @@ class AppNavigator extends Component {
             <Scene key="Home" component={Home} hideNavBar initial />
             <Scene key="AddProfile" component={AddProfile} />
             <Scene key="AddMedication" component={AddMedication} />
+            <Scene key="AddMedicationName" component={AddMedicationName} />
+            <Scene key="AddMedicationScan" component={AddMedicationScan} />
           </Scene>
         </RouterWithRedux>
       </Drawer>

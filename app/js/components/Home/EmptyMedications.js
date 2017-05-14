@@ -14,11 +14,11 @@ const EmptyMedications = ({ list }) => (
   <Card>
     <CardItem header><Text>Enter some Meds</Text></CardItem>
     <CardItem>
-      <Header>Would you like to track a Medication?</Header>
+      <Header><Text>Would you like to track a Medication?</Text></Header>
     </CardItem>
     <CardItem footer>
       <Button onPress={() => Actions.AddMedication()}>
-        <Icon name="fa fa-check" />
+        <Icon name="add" />
         <Text>Yes, Add Medication</Text>
       </Button>
     </CardItem>

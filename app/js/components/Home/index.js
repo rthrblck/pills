@@ -10,73 +10,42 @@ import {
   Content,
   Text,
   Button,
-  Icon,
   Left,
   Body,
   Right,
 } from 'native-base';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Grid, Row } from 'react-native-easy-grid';
 
-import { setIndex } from '../../actions/list';
-import { openDrawer } from '../../actions/drawer';
+import AppHeader from '../BasePage/AppHeader';
+
 import styles from './styles';
 
 import ListMedications from './ListMedications';
 import EmptyMedications from './EmptyMedications';
 
 
-class Home extends Component {
-
-  static propTypes = {
-    name: PropTypes.string,
-    setIndex: PropTypes.func,
-    list: PropTypes.arrayOf(PropTypes.string),
-    openDrawer: PropTypes.func,
-  }
-
-  newPage(index) {
-    this.props.setIndex(index);
-    Actions.blankPage();
-  }
-
-  render() {
-    const { name, list } = this.props;
-    return (
-      <Container style={styles.container}>
-        <Header>
-          <Left>
-            <Button transparent onPress={() => Actions.login({ type: ActionConst.RESET })}>
-              <Icon active name="power" />
-            </Button>
-          </Left>
-
-          <Body>
-            <Title>{(name) || 'Home'}</Title>
-          </Body>
-
-          <Right>
-            <Button transparent onPress={openDrawer}>
-              <Icon active name="menu" />
-            </Button>
-          </Right>
-        </Header>
-
-        <Content>
-          {list && list.length > 0
-            ? <ListMedications list={list} styles={styles} />
-            : <EmptyMedications />
-          }
-        </Content>
-      </Container>
-    );
-  }
-}
+const Home = ({
+  name,
+  list,
+}) => (
+  <Container style={styles.container}>
+    <AppHeader name="Home" />
+    <Content>
+      {list && list.length > 0
+        ? <ListMedications list={list} styles={styles} />
+        : <EmptyMedications />
+      }
+    </Content>
+  </Container>
+);
+Home.propTypes = {
+  name: PropTypes.string,
+  list: PropTypes.arrayOf(PropTypes.string),
+};
 
 function bindAction(dispatch) {
-  return {
-    setIndex: index => dispatch(setIndex(index)),
-    openDrawer: () => dispatch(openDrawer()),
-  };
+  return {};
 }
 
 const mapStateToProps = state => ({
