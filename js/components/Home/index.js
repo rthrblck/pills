@@ -20,6 +20,9 @@ import { setIndex } from '../../actions/list';
 import { openDrawer } from '../../actions/drawer';
 import styles from './styles';
 
+import ListMedications from './ListMedications';
+import EmptyMedications from './EmptyMedications';
+
 
 class Home extends Component {
 
@@ -36,6 +39,7 @@ class Home extends Component {
   }
 
   render() {
+    const { name, list } = this.props;
     return (
       <Container style={styles.container}>
         <Header>
@@ -46,29 +50,21 @@ class Home extends Component {
           </Left>
 
           <Body>
-            <Title>{(this.props.name) ? this.props.name : 'Home'}</Title>
+            <Title>{(name) ? name : 'Home'}</Title>
           </Body>
 
           <Right>
-            <Button transparent onPress={this.props.openDrawer}>
+            <Button transparent onPress={openDrawer}>
               <Icon active name="menu" />
             </Button>
           </Right>
         </Header>
 
         <Content>
-          <Grid style={styles.mt}>
-            {this.props.list.map((item, i) =>
-              <Row key={i}>
-                <TouchableOpacity
-                  style={styles.row}
-                  onPress={() => this.newPage(i)}
-                >
-                  <Text style={styles.text}>{item}</Text>
-                </TouchableOpacity>
-              </Row>
-            )}
-          </Grid>
+          {list && list.length > 0
+            ? <ListMedications list={list} styles={styles} />
+            : <EmptyMedications />
+          }
         </Content>
       </Container>
     );

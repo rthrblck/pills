@@ -3,6 +3,8 @@ import { TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions, ActionConst } from 'react-native-router-flux';
 import {
+  Card,
+  CardItem,
   Container,
   Header,
   Title,
@@ -52,7 +54,12 @@ class AddMedication extends Component {
           </Right>
         </Header>
         <Content>
-          <Text>yo</Text>
+          <Card>
+            <CardItem>
+              <Button large>Scan a Barcode</Button>
+              <Button large>Search by Name</Button>
+            </CardItem>
+          </Card>
         </Content>
       </Container>
     );
