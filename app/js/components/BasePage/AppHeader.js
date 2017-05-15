@@ -17,10 +17,11 @@ import { openDrawer } from '../../actions/drawer';
 
 const AppHeader = ({
   back,
+  segment,
   name,
   profile,
 }) => (
-  <Header>
+  <Header hasSegment={!!segment}>
     <Left>
       {back && (
         <Button transparent onPress={back}>
@@ -43,7 +44,7 @@ const AppHeader = ({
       )}
     </Left>
     <Body>
-      <Title>{name || '?'}</Title>
+      {segment || (<Title>{name || '?'}</Title>)}
     </Body>
     <Right>
       <Button transparent onPress={openDrawer}>
@@ -55,6 +56,7 @@ const AppHeader = ({
 AppHeader.propTypes = {
   back: PropTypes.func,   // optionally send back func
   name: PropTypes.string, // optionally send name of page
+  segment: PropTypes.any, // react component (segment)
   profile: PropTypes.object,
 };
 

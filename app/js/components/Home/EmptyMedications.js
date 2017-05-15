@@ -2,25 +2,29 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Actions } from 'react-native-router-flux';
 import {
-  Header,
+  Body,
+  Button,
   Card,
   CardItem,
-  Text,
-  Button,
+  H2,
   Icon,
+  Text,
+  Right,
 } from 'native-base';
 
 const EmptyMedications = ({ list }) => (
   <Card>
-    <CardItem header><Text>Enter some Meds</Text></CardItem>
+    <CardItem header><H2>Enter some Meds</H2></CardItem>
     <CardItem>
-      <Header><Text>Would you like to track a Medication?</Text></Header>
+      <Text>Would you like to track a Medication?</Text>
     </CardItem>
-    <CardItem footer>
-      <Button onPress={() => Actions.AddMedication()}>
-        <Icon name="add" />
-        <Text>Yes, Add Medication</Text>
-      </Button>
+    <CardItem>
+      <Body>
+        <Button iconRight block full onPress={() => Actions.AddMedication()}>
+          <Text>Yes, Add Medication</Text>
+          <Icon name="arrow-forward" />
+        </Button>
+      </Body>
     </CardItem>
   </Card>
 );

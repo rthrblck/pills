@@ -5,22 +5,24 @@ import { TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions, ActionConst } from 'react-native-router-flux';
 import {
-  Form,
-  Container,
-  Header,
-  Title,
-  Content,
-  Item,
-  Input,
-  Text,
+  Body,
   Button,
   Card,
   CardItem,
-  ListItem,
-  Left,
-  Body,
-  Right,
+  Container,
+  Content,
+  Form,
+  H2,
+  Header,
   Icon,
+  Input,
+  Item,
+  Left,
+  ListItem,
+  Right,
+  Segment,
+  Text,
+  Title,
 } from 'native-base';
 import styles from '../BasePage/styles';
 import AppHeader from '../BasePage/AppHeader';
@@ -35,22 +37,40 @@ const AddMedicationName = ({
 }) => (
   <Container style={styles.container}>
     <AppHeader
-      name="Add Med. by Name"
+      name="Add Med"
       back={Actions.AddMedication}
+      segment={(
+        <Segment>
+          <Button iconLeft transparent first
+            onPress={() => Actions.AddMedicationScanner()}>
+            <Icon name="barcode" />
+            <Text>Scan</Text>
+          </Button>
+          <Button iconLeft last active>
+            <Icon name="search" />
+            <Text>Type</Text>
+          </Button>
+        </Segment>
+      )}
     />
     <Content>
-      <Header searchBar rounded>
-        <Item>
-          <Icon name="search" />
-          <Input
-            placeholder="Search"
-            onChangeText={searchMed}
-          />
-        </Item>
-        <Button transparent>
-          <Text>Search</Text>
-        </Button>
-      </Header>
+      <Card>
+        <CardItem header><H2>Enter Medication Name</H2></CardItem>
+        <CardItem>
+          <Body>
+            <Item rounded>
+              <Icon name="search" />
+              <Input
+                placeholder="Search"
+                onChangeText={(term) => {
+                  console.log('Search', term, searchMed);
+                  searchMed(term);
+                }}
+              />
+            </Item>
+          </Body>
+        </CardItem>
+      </Card>
     </Content>
   </Container>
 );

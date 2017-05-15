@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { Actions, ActionConst } from 'react-native-router-flux';
 import {
   Container,
-  Header,
+  H2,
   Title,
   Content,
   Text,
@@ -19,7 +19,6 @@ import {
   Right,
   Icon,
 } from 'native-base';
-import IconCommunity from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import AppHeader from '../BasePage/AppHeader';
 
@@ -37,29 +36,25 @@ const AddMedication = ({
       back={Actions.Home}
     />
     <Content>
-      <Header><Text>Tell us what Medication</Text></Header>
-      <ListItem avatar onPress={() => {
-        setMed({});
-        Actions.AddMedicationScanner();
-      }}>
-        <Left>
-          <Icon name="barcode" />
-        </Left>
-        <Body>
-          <Text>Scan a Barcode</Text>
-        </Body>
-      </ListItem>
-      <ListItem avatar onPress={() => {
-        setMed({});
-        Actions.AddMedicationName();
-      }}>
-        <Left>
-          <Icon name="search" />
-        </Left>
-        <Body>
-          <Text>Search by Name</Text>
-        </Body>
-      </ListItem>
+      <Card>
+        <CardItem header><H2>Tell us what Medication</H2></CardItem>
+        <CardItem>
+          <Body>
+            <Button iconLeft block full onPress={Actions.AddMedicationScanner}>
+              <Icon name="barcode" />
+              <Text>Scan a Barcode</Text>
+            </Button>
+          </Body>
+        </CardItem>
+        <CardItem>
+          <Body>
+            <Button iconLeft block full onPress={Actions.AddMedicationName}>
+              <Icon name="search" />
+              <Text>Search by Name</Text>
+            </Button>
+          </Body>
+        </CardItem>
+      </Card>
     </Content>
   </Container>
 );
