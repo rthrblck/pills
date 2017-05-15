@@ -20,6 +20,7 @@ const AppHeader = ({
   segment,
   name,
   profile,
+  ...props
 }) => (
   <Header hasSegment={!!segment}>
     <Left>
@@ -47,7 +48,7 @@ const AppHeader = ({
       {segment || (<Title>{name || '?'}</Title>)}
     </Body>
     <Right>
-      <Button transparent onPress={openDrawer}>
+      <Button transparent onPress={() => props.openDrawer()}>
         <Icon active name="menu" />
       </Button>
     </Right>
@@ -58,6 +59,7 @@ AppHeader.propTypes = {
   name: PropTypes.string, // optionally send name of page
   segment: PropTypes.any, // react component (segment)
   profile: PropTypes.object,
+  openDrawer: PropTypes.func,
 };
 
 function bindAction(dispatch) {

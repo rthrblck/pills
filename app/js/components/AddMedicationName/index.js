@@ -5,6 +5,7 @@ import { TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions, ActionConst } from 'react-native-router-flux';
 import {
+  Badge,
   Body,
   Button,
   Card,
@@ -18,22 +19,28 @@ import {
   Input,
   Item,
   Left,
+  List,
   ListItem,
   Right,
   Segment,
+  Spinner,
   Text,
   Title,
 } from 'native-base';
 import styles from '../BasePage/styles';
 import AppHeader from '../BasePage/AppHeader';
 
-import { setIndex } from '../../actions/list';
 import { searchMed } from '../../actions/search_med';
 
 // experiment with making all of the AddMedicationName 1 big page
 // add sections at the bottom with more and more data
 const AddMedicationName = ({
   name,
+  med_options,
+  dataFetched,
+  isFetching,
+  error,
+  ...props
 }) => (
   <Container style={styles.container}>
     <AppHeader
@@ -62,13 +69,24 @@ const AddMedicationName = ({
               <Icon name="search" />
               <Input
                 placeholder="Search"
-                onChangeText={(term) => {
-                  console.log('Search', term, searchMed);
-                  searchMed(term);
-                }}
+                onChangeText={(term) => { props.searchMed(term); }}
               />
             </Item>
           </Body>
+        </CardItem>
+        <CardItem>
+          {isFetching && (<Spinner />)}
+          {!isFetching && error && (<Text>Error Fetching Medication</Text>)}
+          {!isFetching && med_options && med_options.length > 0 && (
+            <List dataArray={med_options} renderRow={(item) =>
+              <ListItem>
+                <Text>{item.name}</Text>
+                <Right>
+                  <Badge><Text>{item.type}</Text></Badge>
+                </Right>
+              </ListItem>
+            }></List>
+          )}
         </CardItem>
       </Card>
     </Content>
@@ -76,19 +94,27 @@ const AddMedicationName = ({
 );
 AddMedicationName.propTypes = {
   name: PropTypes.string,
-  setIndex: PropTypes.func,
+  searchMed: PropTypes.func,
   list: PropTypes.arrayOf(PropTypes.string),
+  med_options: PropTypes.arrayOf(PropTypes.object),
+  // term: string,
+  dataFetched: PropTypes.bool,
+  isFetching: PropTypes.bool,
+  error: PropTypes.bool,
 };
 
 function bindAction(dispatch) {
   return {
-    setIndex: index => dispatch(setIndex(index)),
+    searchMed: index => dispatch(searchMed(index)),
   };
 }
 
 const mapStateToProps = state => ({
-  name: state.user.name,
-  list: state.list.list,
+  med_options: state.search_med.med_options,
+  term: state.search_med.term,
+  dataFetched: state.search_med.dataFetched,
+  isFetching: state.search_med.isFetching,
+  error: state.search_med.error,
 });
 
 export default connect(mapStateToProps, bindAction)(AddMedicationName);

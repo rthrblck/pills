@@ -1,6 +1,5 @@
 /* @flow */
 import type { Action } from '../actions/types';
-import { SEARCH_MED } from '../actions/search_med';
 import { FETCHING_DATA, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAILURE } from '../constants';
 
 export type State = {

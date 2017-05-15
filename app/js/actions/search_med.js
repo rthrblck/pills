@@ -10,10 +10,10 @@ export function getData(term: string): Action {
   };
 }
 
-export function getDataSuccess(data) {
+export function getDataSuccess(med_options) {
   return {
     type: FETCHING_DATA_SUCCESS,
-    data,
+    med_options,
   };
 }
 
@@ -26,7 +26,7 @@ export function getDataFailure() {
 export function searchMed(term: string) {
   return (dispatch) => {
     dispatch(getData(term));
-    getMeds()
+    return getMeds()
       .then((data) => {
         dispatch(getDataSuccess(data));
       })

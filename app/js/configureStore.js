@@ -9,7 +9,8 @@ import promise from './promise';
 
 export default function configureStore(onCompletion: ()=>void): any {
   const enhancer = compose(
-    applyMiddleware(thunk, promise),
+    // applyMiddleware(thunk, promise),
+    applyMiddleware(thunk),
     devTools({ name: 'pills', realtime: true }),
   );
 
