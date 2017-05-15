@@ -49,7 +49,7 @@ const AddMedicationName = ({
       segment={(
         <Segment>
           <Button iconLeft transparent first
-            onPress={() => Actions.AddMedicationScanner()}>
+            onPress={() => Actions.AddMedicationScan()}>
             <Icon name="barcode" />
             <Text>Scan</Text>
           </Button>

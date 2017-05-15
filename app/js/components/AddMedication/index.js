@@ -40,7 +40,7 @@ const AddMedication = ({
         <CardItem header><H2>Tell us what Medication</H2></CardItem>
         <CardItem>
           <Body>
-            <Button iconLeft block full onPress={Actions.AddMedicationScanner}>
+            <Button iconLeft block full onPress={() => Actions.AddMedicationScan()}>
               <Icon name="barcode" />
               <Text>Scan a Barcode</Text>
             </Button>
@@ -48,7 +48,7 @@ const AddMedication = ({
         </CardItem>
         <CardItem>
           <Body>
-            <Button iconLeft block full onPress={Actions.AddMedicationName}>
+            <Button iconLeft block full onPress={() => Actions.AddMedicationName()}>
               <Icon name="search" />
               <Text>Search by Name</Text>
             </Button>
