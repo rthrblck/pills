@@ -1,76 +1,85 @@
 import PropTypes from 'prop-types';
 /* @flow */
 import React, { Component } from 'react';
-import { TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions, ActionConst } from 'react-native-router-flux';
 import {
-  Container,
-  Header,
-  Title,
-  Content,
-  Text,
+  Body,
   Button,
+  Container,
+  Content,
+  Header,
   Icon,
   Left,
-  Body,
   Right,
-} from 'native-base';
+  Segment,
+  Text,
+  Title,
+  View,
+} from 'react-native';
+import Camera from 'react-native-camera';
 import styles from '../BasePage/styles';
+import AppHeader from '../BasePage/AppHeader';
 
 import { setIndex } from '../../actions/list';
 import { openDrawer } from '../../actions/drawer';
 
+import { searchMed } from '../../actions/search_med';
+
 // experiment with making all of the AddMedicationScan 1 big page
 // add sections at the bottom with more and more data
 class AddMedicationScan extends Component {
-  static propTypes = {
-    name: PropTypes.string,
-    setIndex: PropTypes.func,
-    list: PropTypes.arrayOf(PropTypes.string),
-    openDrawer: PropTypes.func,
-  }
-  componentDidUpdate() {
-    console.log('AddMedicationScan updated', this.props);
-  }
   render() {
     return (
       <Container style={styles.container}>
-        <Header>
-          <Left>
-            <Button transparent onPress={() => Actions.login({ type: ActionConst.RESET })}>
-              <Icon active name="power" />
-            </Button>
-          </Left>
-
-          <Body>
-            <Title>{(this.props.name) ? this.props.name : 'AddMedicationScan'}</Title>
-          </Body>
-
-          <Right>
-            <Button transparent onPress={this.props.openDrawer}>
-              <Icon active name="menu" />
-            </Button>
-          </Right>
-        </Header>
+        <AppHeader
+          name="Add Med"
+          back={Actions.AddMedication}
+          segment={(
+            <Segment>
+              <Button iconLeft transparent first
+                onPress={() => Actions.AddMedicationScan()}>
+                <Icon name="barcode" />
+                <Text>Scan</Text>
+              </Button>
+              <Button iconLeft last active>
+                <Icon name="search" />
+                <Text>Type</Text>
+              </Button>
+            </Segment>
+          )}
+        />
         <Content>
-          <Text>yo</Text>
+          <Camera
+              ref={(cam) => { this.camera = cam; }}
+              style={styles.preview}
+              aspect={Camera.constants.Aspect.fill}>
+              <Text style={styles.capture} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
+          </Camera>
         </Content>
       </Container>
     );
   }
+  takePicture = () => {
+    const options = {};
+    // options.location = ...
+    this.camera.capture({ metadata: options })
+      .then((data) => console.log(data))
+      .catch(err => console.error(err));
+  };
 }
+AddMedicationScan.propTypes = {
+  name: PropTypes.string,
+  searchMed: PropTypes.func,
+};
 
 function bindAction(dispatch) {
   return {
-    setIndex: index => dispatch(setIndex(index)),
-    openDrawer: () => dispatch(openDrawer()),
+    searchMed: index => dispatch(searchMed(index)),
   };
 }
 
 const mapStateToProps = state => ({
-  name: state.user.name,
-  list: state.list.list,
 });
 
 export default connect(mapStateToProps, bindAction)(AddMedicationScan);
