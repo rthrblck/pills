@@ -1,1 +1,2 @@
 *.pbxproj -text
+*.sketch filter=lfs diff=lfs merge=lfs -text
