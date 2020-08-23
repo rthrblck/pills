@@ -1,6 +1,6 @@
 # Pills
 
-__A simple medication tracker and reminder system, for everyone (including your gradma and fur babies)__
+__A simple medication tracker and reminder system, for everyone (including your grandma and fur babies)__
 
 ## How does it work?
 
